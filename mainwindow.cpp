@@ -3,7 +3,6 @@
 #include "mission.h"
 #include<QMessageBox>
 #include<QIntValidator>
-#include "login.h"
 #include<QValidator>
 
 
@@ -107,9 +106,4 @@ void MainWindow::on_pb_modifier_clicked()
                                 "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
-void MainWindow::on_pushButton_11_clicked()
-{
-    login l;
-    //l.setmission(M);
-    l.exec();
-}
+

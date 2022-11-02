@@ -627,22 +627,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
-    <property name="geometry">
-     <rect>
-      <x>1060</x>
-      <y>10</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 14pt &quot;MS Serif&quot;;</string>
-    </property>
-    <property name="text">
-     <string>login</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_49">
     <property name="geometry">
      <rect>
@@ -682,7 +666,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <zorder>pb_supprimer</zorder>
    <zorder>label_33</zorder>
    <zorder>le_id_supp</zorder>
-   <zorder>pushButton_11</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

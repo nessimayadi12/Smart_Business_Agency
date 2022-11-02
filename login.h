@@ -1,3 +1,4 @@
+/*
 #ifndef LOGIN_H
 #define LOGIN_H
 #include"mission.h"
@@ -27,3 +28,4 @@ private:
 };
 
 #endif // LOGIN_H
+*/

@@ -5,6 +5,8 @@
 #include<QDebug>
 #include<QVariant>
 
+
+
 Mission::Mission()
 {
 id=0; num_du_guide=0;

@@ -1,3 +1,4 @@
+/*
 #include "login.h"
 #include "ui_login.h"
 #include<QSqlQuery>
@@ -43,3 +44,4 @@ void login::on_pushButton_2_clicked()
                 ui->verif_label->setText("incorrect");
         }
 }
+*/
