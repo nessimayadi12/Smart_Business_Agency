@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include <QApplication>
+#include <QPushButton>
 #include <QMessageBox>
 #include "employe.h"
 #include "connection.h"
@@ -15,18 +16,10 @@ int main(int argc, char *argv[])
 
     if(test)
     {w.show();
-        QMessageBox::information(nullptr, QObject::tr("database is open"),
-                    QObject::tr("connection successful.\n"
-                                "Click OK to exit."), QMessageBox::Cancel);
-        qDebug() << "test";
-
+        QMessageBox::information(nullptr, QObject::tr("Employees Management"),
+                    QObject::tr("WELCOME\n"
+                                "Click OK to enter."), QMessageBox::Ok);
+        qDebug() << "zak khobzti fel fifa";
 }
-    else{
-        QMessageBox::critical(nullptr, QObject::tr("database is not open"),
-                    QObject::tr("connection failed.\n"
-                                "Click Cancel to exit."), QMessageBox::Cancel);
-    qDebug() << "test failed";
-    }
-
     return a.exec();
 }

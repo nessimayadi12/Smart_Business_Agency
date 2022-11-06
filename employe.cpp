@@ -1,5 +1,6 @@
 #include "employe.h"
 #include "modify.h"
+#include <QDebug>
 
 bool Employe::Ajouter(){ //YWRkIGVtcGxveWU=//
     QSqlQuery query;
@@ -22,22 +23,30 @@ bool Employe::Ajouter(){ //YWRkIGVtcGxveWU=//
     return query.exec();
 }
 
-bool Employe::Modifier(QString id,QString nom ,QString prenom,QString status,QString mail,int age,QString nat,QString phone,int salaire,QString id_emp) //update //
+bool Employe::Modifier(QString id,QString status,QString mail,QString phone,int salaire,QString id_emp) //update //
 {
     QSqlQuery query ;
-    query.prepare("UPDATE EMPLOYES SET IDENTIFIANT_E= :id,NOM_E= :nom,PRENOM_E= :prenom,STATUS_E= :status,"
-                  "PHONE_E= :phone,MAIL_E= :mail,AGE_E= :age,SALAIRE_E= :salaire,NATIONALITE_E= :nat,EMP_IDENTIFIANT_E= :id_emp");
+    QSqlQuery test ;
+    test.prepare("SELECT COUNT(*) from EMPLOYES where IDENTIFIANT_E= :id");
+    test.bindValue(":id",id);
+    test.exec();
+    if (test.next())
+    {
+  if (test.value(0).toInt() == 1)
+  {
+    query.prepare("UPDATE EMPLOYES SET IDENTIFIANT_E= :id,STATUS_E= :status,"
+                  "PHONE_E= :phone,MAIL_E= :mail,SALAIRE_E= :salaire,EMP_IDENTIFIANT_E= :id_emp");
     query.bindValue(":id",id);
-    query.bindValue(":nom",nom);
-    query.bindValue(":prenom",prenom);
     query.bindValue(":status",status);
     query.bindValue(":phone",phone);
     query.bindValue(":mail",mail);
-    query.bindValue(":age",age);
     query.bindValue(":salaire",salaire);
-    query.bindValue(":nat",nat);
     query.bindValue(":id_emp",id_emp);
     return query.exec();
+  }
+  else
+      return false ;
+}
 }
 
 QSqlQueryModel * Employe::Afficher(){ //afffichage1//
@@ -70,16 +79,35 @@ QSqlQueryModel * Employe::Afficher_2(){ //afffichage2//
 
 bool Employe::Supprimer(QString id) //supprimer//
 {
-  QSqlQuery query2;
-  query2.prepare("SELECT COUNT (*) FROM as count EMPLOYES  WHERE IDENTFIANT_E= :id");
-  query2.bindValue(":id",id);
-  if (query2.exec())
+  QSqlQuery test ;
+  test.prepare("SELECT COUNT(*) from EMPLOYES where IDENTIFIANT_E= :id");
+  test.bindValue(":id",id);
+  test.exec();
+  if (test.next())
   {
-  int a=query2.value(0).toInt();
-  qDebug() <<a;
-  }
-  QSqlQuery query ;
-  query.prepare("Delete from EMPLOYES where IDENTIFIANT_E= :id");
-  query.bindValue(":id",id);
-  return query.exec();
+if (test.value(0).toInt() == 1)
+{
+    QSqlQuery query ;
+    query.prepare("Delete from EMPLOYES where IDENTIFIANT_E= :id");
+    query.bindValue(":id",id);
+    return query.exec();
 }
+   else
+    return false;
+  }
+}
+
+QSqlQueryModel * Employe::researchid(QString i)
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+         model->setQuery("select * from EMPLOYES where upper(IDENTIFIANT_E) like upper ('%"+i+"%') ");
+         model->setHeaderData(0, Qt::Vertical, QObject::tr("IDENTIFIANT_E"));
+         model->setHeaderData(1, Qt::Vertical, QObject::tr("NOM_E"));
+         model->setHeaderData(2, Qt::Vertical, QObject::tr("PRENOM_E"));
+         model->setHeaderData(3, Qt::Vertical, QObject::tr("STATUS_E"));
+         model->setHeaderData(4, Qt::Vertical, QObject::tr("PHONE_E"));
+         model->setHeaderData(5, Qt::Vertical, QObject::tr("MAIL_E"));
+             return model;
+}
+

@@ -39,6 +39,15 @@ class Employe
             this->salaire = sal;
             this->id_emp= b ;
         };
+        Employe(QString i,QString s,QString m,QString tel,int sal,QString b)
+{
+        this->id = i;
+        this->status = s;
+        this->mail = m;
+        this->phone = tel;
+        this->salaire = sal;
+        this->id_emp= b ;
+}
         QString getID(){return this->id;};
         QString getNom(){return this->nom;};
         QString getPrenom(){return this->prenom;};
@@ -53,7 +62,8 @@ class Employe
         void setID(QString);
         bool Ajouter();
         bool Supprimer(QString);
-        bool Modifier(QString,QString,QString,QString,QString,int,QString,QString,int,QString);
+        bool Modifier(QString,QString,QString,QString,int,QString);
+        QSqlQueryModel * researchid(QString i);
         QSqlQueryModel * Afficher();
         QSqlQueryModel * Afficher_2();
 };

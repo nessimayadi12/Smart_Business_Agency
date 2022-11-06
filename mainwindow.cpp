@@ -117,7 +117,16 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_add_clicked()
+void MainWindow::on_modify_clicked() //second window opener function //
+{
+    modify m;
+    m.setModal(true);
+    m.exec();
+    ui->tableView->setModel(g.Afficher());
+    ui->tableView_delete->setModel(g.Afficher());
+}
+
+void MainWindow::on_pushButton_clicked()
 {
     QString id = ui->lineID_E->text();
     QString nom = ui->lineNom_E->text();
@@ -183,33 +192,49 @@ else
  }
 }
 
-
-void MainWindow::on_delete_2_clicked() //delete function //
+void MainWindow::on_pushButton_2_clicked()// delete //
 {
-       QString d=ui->lineID_d->text();
-       bool test=true;
- supp.Supprimer(d);
-        if(test)
-        {
+    QString d=ui->lineID_d->text();
+    bool test=supp.Supprimer(d);
+     if(test)
+     {
 
-             QMessageBox::information(nullptr, QObject::tr("OK"),
-                                     QObject::tr("suppression effectué.\n"
-                                                 "Click Cancel to exit."), QMessageBox::Cancel);
-              }
-                  else
-            {
-            QMessageBox::information(nullptr, QObject::tr("supprimer equipement"),
-                                  QObject::tr("suppression echouée.\n"
-                                            "Click Cancel to exit."), QMessageBox::Cancel);
-            }
- ui->tableView->setModel(g.Afficher());
- ui->tableView_delete->setModel(g.Afficher());
+          QMessageBox::information(nullptr, QObject::tr("OK"),
+                                  QObject::tr("suppression effectué.\n"
+                                              "Click Cancel to exit."), QMessageBox::Cancel);
+           }
+               else
+         {
+         QMessageBox::information(nullptr, QObject::tr("supprimer equipement"),
+                               QObject::tr("suppression echouée.\n"
+                                         "Click Cancel to exit."), QMessageBox::Cancel);
+         }
+ui->tableView->setModel(g.Afficher());
+ui->tableView_delete->setModel(g.Afficher());
+}
+
+void MainWindow::on_checkBox_stateChanged(int arg1) //search //
+{
+    Employe s ;
+    QString id = ui->line_research->text();
+    ui->tableView->setModel(s.researchid(id));
 }
 
 
-void MainWindow::on_modify_clicked() //second window opener funtion //
+void MainWindow::on_radioButton_clicked()
 {
-    modify m;
-    m.setModal(true);
-    m.exec();
+    QMessageBox msgBox ;
+                QSqlQueryModel * model= new QSqlQueryModel();
+
+                   model->setQuery("select * from EMPLOYES order by DATE_AJOUT_E");
+                   model->setHeaderData(0, Qt::Horizontal, QObject::tr("IDENTIFIANT_E"));
+                   model->setHeaderData(1, Qt::Horizontal, QObject::tr("NOM_E"));
+                   model->setHeaderData(2, Qt::Horizontal, QObject::tr("PRENOM_E"));
+                   model->setHeaderData(3, Qt::Horizontal, QObject::tr("STATUS_E"));
+                   model->setHeaderData(4, Qt::Horizontal, QObject::tr("PHONE_E"));
+                   model->setHeaderData(5, Qt::Horizontal, QObject::tr("MAIL_E"));
+                            ui->tableView->setModel(model);
+                            ui->tableView->show();
+                            msgBox.setText("Tri avec succés.");
+                            msgBox.exec();
 }

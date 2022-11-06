@@ -20,22 +20,17 @@ modify::~modify()
 }
 
 
-void modify::on_pushButton_2_clicked()
+void modify::on_confirm_clicked()
 {
     QString id = ui->lineID_edit->text();
-    QString nom = ui->lineNom_edit->text();
-    QString prenom = ui->linePrenom_edit->text();
     QString status = ui->comboBox_edit->currentText();
     QString phone = ui->linePhone_edit->text();
     QString mail = ui->lineMail_edit->text();
-    int age = ui->spin_edit->value();
-    QString nat = ui->lineNat_edit->text();
     int salaire = ui->lineSal_edit->text().toInt();
     QString id_emp = ui->line_ID_chef_edit->text();
 
-
-    Employe e(id,nom, prenom, status, mail, age, nat, phone,salaire,id_emp);
-    bool test_modify = e.Modifier(id,nom,prenom,status,mail,age,nat,phone,salaire,id_emp);
+    Employe e(id,status, mail, phone,salaire,id_emp);
+    bool test_modify = e.Modifier(id,status,mail,phone,salaire,id_emp);
     if (test_modify)
     {
         ui->table_modify->setModel(e.Afficher());

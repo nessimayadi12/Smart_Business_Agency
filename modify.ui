@@ -465,47 +465,24 @@ background-color: rgb(206, 106, 107);</string>
      <x>330</x>
      <y>30</y>
      <width>721</width>
-     <height>511</height>
+     <height>501</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);</string>
    </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>80</y>
+     <y>140</y>
      <width>56</width>
      <height>16</height>
     </rect>
    </property>
    <property name="text">
     <string>ID</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>110</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>FIRST NAME</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_3">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>140</y>
-     <width>71</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>LAST NAME</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -547,37 +524,11 @@ background-color: rgb(206, 106, 107);</string>
     <string>MAIL</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>260</y>
-     <width>56</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>AGE</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_8">
-   <property name="geometry">
-    <rect>
-     <x>30</x>
-     <y>290</y>
-     <width>81</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>NATIONALITY</string>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>320</y>
+     <y>260</y>
      <width>56</width>
      <height>16</height>
     </rect>
@@ -590,7 +541,7 @@ background-color: rgb(206, 106, 107);</string>
    <property name="geometry">
     <rect>
      <x>30</x>
-     <y>350</y>
+     <y>290</y>
      <width>56</width>
      <height>16</height>
     </rect>
@@ -600,26 +551,6 @@ background-color: rgb(206, 106, 107);</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineID_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>80</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineNom_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>110</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="linePrenom_edit">
    <property name="geometry">
     <rect>
      <x>150</x>
@@ -669,31 +600,11 @@ background-color: rgb(206, 106, 107);</string>
     </rect>
    </property>
   </widget>
-  <widget class="QSpinBox" name="spin_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>260</y>
-     <width>42</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineNat_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>290</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="lineSal_edit">
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>320</y>
+     <y>260</y>
      <width>113</width>
      <height>22</height>
     </rect>
@@ -703,19 +614,19 @@ background-color: rgb(206, 106, 107);</string>
    <property name="geometry">
     <rect>
      <x>150</x>
-     <y>350</y>
+     <y>290</y>
      <width>113</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_2">
+  <widget class="QPushButton" name="confirm">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>400</y>
-     <width>151</width>
-     <height>81</height>
+     <x>110</x>
+     <y>350</y>
+     <width>93</width>
+     <height>28</height>
     </rect>
    </property>
    <property name="text">
