@@ -550,20 +550,73 @@ background-color: rgb(206, 106, 107);</string>
     <string>ID_CHEF</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineID_edit">
+  <widget class="QLineEdit" name="line_id_m">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
      <y>140</y>
      <width>113</width>
      <height>22</height>
     </rect>
    </property>
   </widget>
-  <widget class="QComboBox" name="comboBox_edit">
+  <widget class="QLineEdit" name="line_p_m">
    <property name="geometry">
     <rect>
-     <x>150</x>
+     <x>140</x>
+     <y>200</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_m_m">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>230</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_salaire_m">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>260</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="line_idchef_m">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>290</y>
+     <width>113</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>340</y>
+     <width>93</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="combo_s_m">
+   <property name="geometry">
+    <rect>
+     <x>140</x>
      <y>170</y>
      <width>73</width>
      <height>22</height>
@@ -571,67 +624,14 @@ background-color: rgb(206, 106, 107);</string>
    </property>
    <item>
     <property name="text">
-     <string>Online</string>
+     <string>ONLINE</string>
     </property>
    </item>
    <item>
     <property name="text">
-     <string>Offline</string>
+     <string>OFFLINE</string>
     </property>
    </item>
-  </widget>
-  <widget class="QLineEdit" name="linePhone_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>200</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineMail_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>230</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineSal_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>260</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="line_ID_chef_edit">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>290</y>
-     <width>113</width>
-     <height>22</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="confirm">
-   <property name="geometry">
-    <rect>
-     <x>110</x>
-     <y>350</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CONFIRM</string>
-   </property>
   </widget>
  </widget>
  <resources/>

@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "employe.h"
 #include "modify.h"
+#include <qdebug.h>
 #include "QMessageBox"
 #include <bits/stdc++.h>
 using namespace std;
@@ -215,11 +216,17 @@ ui->tableView_delete->setModel(g.Afficher());
 
 void MainWindow::on_checkBox_stateChanged(int arg1) //search //
 {
+    if (ui->checkBox->isChecked())
+    {
     Employe s ;
     QString id = ui->line_research->text();
     ui->tableView->setModel(s.researchid(id));
+    }
+    else {
+        ui->tableView->setModel(g.Afficher());
+        ui->tableView_delete->setModel(g.Afficher());
 }
-
+}
 
 void MainWindow::on_radioButton_clicked()
 {
@@ -233,8 +240,15 @@ void MainWindow::on_radioButton_clicked()
                    model->setHeaderData(3, Qt::Horizontal, QObject::tr("STATUS_E"));
                    model->setHeaderData(4, Qt::Horizontal, QObject::tr("PHONE_E"));
                    model->setHeaderData(5, Qt::Horizontal, QObject::tr("MAIL_E"));
+                   if (ui->radioButton->isChecked())
+                   {
                             ui->tableView->setModel(model);
                             ui->tableView->show();
                             msgBox.setText("Tri avec succés.");
                             msgBox.exec();
+                   }
+                   else {
+                       ui->tableView->setModel(g.Afficher());
+                       ui->tableView_delete->setModel(g.Afficher());
+                   }
 }

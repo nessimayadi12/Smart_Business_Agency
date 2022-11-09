@@ -39,12 +39,13 @@ class Employe
             this->salaire = sal;
             this->id_emp= b ;
         };
-        Employe(QString i,QString s,QString m,QString tel,int sal,QString b)
+
+        Employe(QString i,QString s,QString tel,QString m,int sal,QString b)
 {
         this->id = i;
         this->status = s;
-        this->mail = m;
         this->phone = tel;
+        this->mail = m;
         this->salaire = sal;
         this->id_emp= b ;
 }
