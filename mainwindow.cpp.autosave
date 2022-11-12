@@ -227,24 +227,14 @@ void MainWindow::on_Tri_clicked()
     ui->tab_mission->setModel(M.tri());
 }
 
-/*void MainWindow::on_Rechercher_clicked()
-{
-
-
-
-    int id=ui->le_id_supp->text().toInt();
-      M.Trouver(recherche);
-      //M.afficher();
-}
-
-*/
 
 void MainWindow::on_Tri_2_clicked()
 {
     ui->tab_mission->setModel(M.tri2());
 }
 
-/*void MainWindow::on_Rechercher_clicked(const QString &arg1)
+
+/*void MainWindow::on_Rechercher_clicked()
 {
     ui->le_id_supp->setValidator( new QIntValidator(0, 999999, this));
     if(ui->le_id_supp->text()!="")

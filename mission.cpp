@@ -80,9 +80,26 @@ QSqlQueryModel * Mission::afficher()
 }
 
 QSqlQueryModel * Mission::tri()
-{QSqlQueryModel * model= new QSqlQueryModel();
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
 
     model->setQuery("SELECT *  FROM MISSIONS ORDER BY NOM_M");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identfiant"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("logement"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("moyen de transport"));
+    model->setHeaderData(5, Qt::Horizontal, QObject::tr("nature de la mission"));
+    model->setHeaderData(6, Qt::Horizontal, QObject::tr("nom du guide"));
+    model->setHeaderData(7, Qt::Horizontal, QObject::tr("numero du guide"));
+
+    return model;
+}
+QSqlQueryModel * Mission::tri2()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+
+    model->setQuery("SELECT *  FROM MISSIONS ORDER BY ID_M");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Identfiant"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
@@ -121,13 +138,16 @@ bool Mission::modifier(int ID_M, QString NOM_M,QString PRENOM_M,QString LOGEMENT
 QSqlQueryModel* Mission::Trouver(QString recherche){
     QSqlQueryModel* trouve = new QSqlQueryModel();
 
-    trouve->setQuery("SELECT * FROM missions WHERE ID_M LIKE '"+recherche+"%' OR NOM_M LIKE '"+recherche+"%' OR PRENOM_M LIKE '"+recherche+"%' ");
 
-    trouve->setHeaderData(0, Qt::Horizontal, QObject::tr("Identifiant"));
-    trouve->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
-    trouve->setHeaderData(2, Qt::Horizontal, QObject::tr("Prenom"));
+       trouve->setQuery("SELECT * FROM EMPLOYER WHERE ID_M LIKE '%"+recherche+"%' ");
 
-
-
-    return trouve;
+       trouve->setHeaderData(0, Qt::Horizontal, QObject::tr("Identfiant"));
+       trouve->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));
+       trouve->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+       trouve->setHeaderData(3, Qt::Horizontal, QObject::tr("logement"));
+       trouve->setHeaderData(4, Qt::Horizontal, QObject::tr("moyen de transport"));
+       trouve->setHeaderData(5, Qt::Horizontal, QObject::tr("nature de la mission"));
+       trouve->setHeaderData(6, Qt::Horizontal, QObject::tr("nom du guide"));
+       trouve->setHeaderData(7, Qt::Horizontal, QObject::tr("numero du guide"));
+       return trouve;
 }

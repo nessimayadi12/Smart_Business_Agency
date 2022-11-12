@@ -29,6 +29,7 @@ public:
     bool ajouter();
     QSqlQueryModel * afficher();
     QSqlQueryModel * tri();
+    QSqlQueryModel * tri2();
     bool supprimer(int);
     bool modifier(int,QString,QString,QString,QString,QString,QString,int);
 QSqlQueryModel * Trouver(QString);
