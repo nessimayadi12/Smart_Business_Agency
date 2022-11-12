@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="label_29">
     <property name="geometry">
@@ -29,31 +32,6 @@
     <property name="pixmap">
      <pixmap>../../../../Downloads/AdobeStock_132615501-1200x675 (1).png</pixmap>
     </property>
-   </widget>
-   <widget class="QComboBox" name="Trier">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>390</y>
-      <width>191</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="contextMenuPolicy">
-     <enum>Qt::CustomContextMenu</enum>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <item>
-     <property name="text">
-      <string>Trier par</string>
-     </property>
-     <property name="icon">
-      <iconset>
-       <normaloff>../../../../Downloads/sort-1_90914 (1).png</normaloff>../../../../Downloads/sort-1_90914 (1).png</iconset>
-     </property>
-    </item>
    </widget>
    <widget class="QGroupBox" name="Formulaire">
     <property name="geometry">
@@ -418,11 +396,11 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Itinéraire</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_15">
+   <widget class="QPushButton" name="Rechercher">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>30</y>
+      <x>760</x>
+      <y>350</y>
       <width>241</width>
       <height>31</height>
      </rect>
@@ -606,7 +584,7 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <rect>
       <x>260</x>
       <y>360</y>
-      <width>191</width>
+      <width>261</width>
       <height>20</height>
      </rect>
     </property>
@@ -614,13 +592,13 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
-     <string>Entrez l'identifiant à supprimer :</string>
+     <string>Entrez l'identifiant à supp ou à rechercher:</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="le_id_supp">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>530</x>
       <y>360</y>
       <width>113</width>
       <height>20</height>
@@ -643,16 +621,47 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <pixmap>../../../../Downloads/loginIcon (1).png</pixmap>
     </property>
    </widget>
+   <widget class="QPushButton" name="pb_PDF">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>350</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Print to PDF</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Tri">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>390</y>
+      <width>161</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Trier de A-Z</string>
+    </property>
+   </widget>
    <zorder>label_49</zorder>
    <zorder>label_29</zorder>
-   <zorder>Trier</zorder>
    <zorder>Formulaire</zorder>
    <zorder>pushButton_13</zorder>
    <zorder>label_42</zorder>
    <zorder>label_44</zorder>
    <zorder>label_45</zorder>
    <zorder>pushButton_14</zorder>
-   <zorder>pushButton_15</zorder>
+   <zorder>Rechercher</zorder>
    <zorder>verticalScrollBar</zorder>
    <zorder>label_47</zorder>
    <zorder>label_48</zorder>
@@ -666,6 +675,8 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <zorder>pb_supprimer</zorder>
    <zorder>label_33</zorder>
    <zorder>le_id_supp</zorder>
+   <zorder>pb_PDF</zorder>
+   <zorder>Tri</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

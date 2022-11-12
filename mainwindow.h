@@ -19,7 +19,15 @@ private slots:
     void on_pb_ajouter_clicked();
     void on_pb_supprimer_clicked();
     void on_pb_modifier_clicked();
-    void on_pushButton_11_clicked();
+    //void on_pushButton_11_clicked();
+
+    void on_pb_PDF_clicked();
+
+    void on_tab_mission_activated(const QModelIndex &index);
+
+    void on_Tri_clicked();
+
+    void on_Rechercher_clicked();
 
 private:
     Ui::MainWindow *ui;

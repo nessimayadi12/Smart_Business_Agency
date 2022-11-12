@@ -4,7 +4,11 @@
 #include<QMessageBox>
 #include<QIntValidator>
 #include<QValidator>
-
+#include<QPrinter>
+#include<QPainter>
+#include<QSqlQuery>
+#include<QSqlQueryModel>
+#include<QSqlError>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -107,3 +111,57 @@ void MainWindow::on_pb_modifier_clicked()
 }
 
 
+
+void MainWindow::on_pb_PDF_clicked()
+{
+    QPrinter printer;
+         printer.setOutputFormat(QPrinter::PdfFormat);
+         printer.setOutputFileName("missions.pdf");
+         QPainter painter;
+         if (! painter.begin(&printer)) { // failed to open file
+             qWarning("failed to open file, is it writable?");
+         }
+         painter.drawText(10, 10, "missions");
+         if (! printer.newPage()) {
+             qWarning("failed in flushing page to disk, disk full?");
+         }
+         painter.drawText(10, 10, "Test 2");
+         painter.end();
+}
+
+void MainWindow::on_tab_mission_activated(const QModelIndex &index)
+{
+    QString val=ui->tab_mission->model()->data(index).toString();
+    QSqlQuery query;
+    query.prepare ("select * from missions where ID_M=:val ");
+
+    if(query.exec( ))
+    {
+        while(query.next())
+        {
+            ui->le_id->setText(query.value(0).toString());
+
+        }
+    }
+    else
+    {
+        QMessageBox::critical(this,tr("error::"),query.lastError().text());
+    }
+}
+
+void MainWindow::on_Tri_clicked()
+{
+    ui->tab_mission->setModel(M.tri());
+}
+
+/*void MainWindow::on_Rechercher_clicked()
+{
+
+
+
+    int id=ui->le_id_supp->text().toInt();
+      M.Trouver(recherche);
+      //M.afficher();
+}
+
+*/

@@ -28,9 +28,10 @@ public:
     //Fonctionnalités de base relatives à l'entite mission
     bool ajouter();
     QSqlQueryModel * afficher();
+    QSqlQueryModel * tri();
     bool supprimer(int);
     bool modifier(int,QString,QString,QString,QString,QString,QString,int);
-
+QSqlQueryModel * Trouver(QString);
 private:
     int id;
     long num_du_guide;
