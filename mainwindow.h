@@ -17,6 +17,12 @@ public:
     ~MainWindow();
 
 private slots:
+    void sendMail();
+
+    void mailSent(QString);
+
+    void browse();
+
     void on_modify_clicked(); // modify thezk second window //
 
     void on_pushButton_clicked(); // add //
@@ -27,11 +33,16 @@ private slots:
 
     void on_radioButton_clicked();
 
+    void on_pushButton_3_clicked();
+
+    void on_pushButton_4_clicked();
+
 private:
     Ui::MainWindow *ui;
     Employe g;
     Employe d;
     Employe supp;
+    QStringList files;
 };
 
 #endif // MAINWINDOW_H

@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "employe.h"
 #include "QMessageBox"
+#include<QSound>
 
 modify::modify(QWidget *parent) :
     QDialog(parent),
@@ -10,7 +11,6 @@ modify::modify(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->table_modify->setModel(e.Afficher());
-
     qDebug()<<"start";
 }
 
@@ -18,6 +18,8 @@ modify::~modify()
 {
     delete ui;
 }
+
+
 void modify::on_pushButton_clicked()
 {
     QString id = ui->line_id_m->text();
@@ -30,6 +32,9 @@ void modify::on_pushButton_clicked()
     bool test_modify = e.Modifier(id,status,phone,mail,salaire,id_emp);
     if (test_modify)
     {
+        QSound s("C:/Users/khalil/OneDrive/Bureau/FINAL/click.wav");
+        s.play();
+        qDebug() << "test";
         ui->table_modify->setModel(e.Afficher());
         QMessageBox::information(nullptr, QObject::tr("YESS :)"),
                                  QObject::tr("DONE.\nClick Cancel to exit."), QMessageBox::Ok);
@@ -37,6 +42,5 @@ void modify::on_pushButton_clicked()
     else
     { QMessageBox::information(nullptr, QObject::tr("SORRY -_-"),
                             QObject::tr("NOT DONE.\nClick Cancel to exit."), QMessageBox::Ok);
-    qDebug() << "test";
     }
 }

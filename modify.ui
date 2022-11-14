@@ -25,9 +25,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -97,18 +97,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -171,9 +171,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -243,18 +243,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -317,9 +317,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -389,18 +389,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>206</red>
-        <green>106</green>
-        <blue>107</blue>
+        <red>119</red>
+        <green>128</green>
+        <blue>255</blue>
        </color>
       </brush>
      </colorrole>
@@ -456,8 +456,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">
-background-color: rgb(206, 106, 107);</string>
+   <string notr="true">background-color: rgb(119, 128, 255);</string>
   </property>
   <widget class="QTableView" name="table_modify">
    <property name="geometry">
@@ -559,6 +558,13 @@ background-color: rgb(206, 106, 107);</string>
      <height>22</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+ </string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="line_p_m">
    <property name="geometry">
@@ -568,6 +574,13 @@ background-color: rgb(206, 106, 107);</string>
      <width>113</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+ </string>
    </property>
   </widget>
   <widget class="QLineEdit" name="line_m_m">
@@ -579,6 +592,13 @@ background-color: rgb(206, 106, 107);</string>
      <height>22</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+ </string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="line_salaire_m">
    <property name="geometry">
@@ -588,6 +608,13 @@ background-color: rgb(206, 106, 107);</string>
      <width>113</width>
      <height>22</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+ </string>
    </property>
   </widget>
   <widget class="QLineEdit" name="line_idchef_m">
@@ -599,18 +626,12 @@ background-color: rgb(206, 106, 107);</string>
      <height>22</height>
     </rect>
    </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>340</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
+   <property name="styleSheet">
+    <string notr="true">background-color: rgb(255, 255, 255);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+ </string>
    </property>
   </widget>
   <widget class="QComboBox" name="combo_s_m">
@@ -632,6 +653,25 @@ background-color: rgb(206, 106, 107);</string>
      <string>OFFLINE</string>
     </property>
    </item>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>100</x>
+     <y>350</y>
+     <width>93</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>MODIFY</string>
+   </property>
   </widget>
  </widget>
  <resources/>

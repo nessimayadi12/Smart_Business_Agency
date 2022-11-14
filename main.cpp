@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include "employe.h"
 #include "connection.h"
+#include <authentification.h>
 #include"modify.h"
 #include <QDebug>
 
@@ -12,14 +13,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     Connection c;
     bool test=c.createconnect();
-    MainWindow w;
-
+    authentification login;
     if(test)
-    {w.show();
-        QMessageBox::information(nullptr, QObject::tr("Employees Management"),
-                    QObject::tr("WELCOME\n"
-                                "Click OK to enter."), QMessageBox::Ok);
-        qDebug() << "zak khobzti fel fifa";
+    {
+        login.show();
+        qDebug() << "base mrigla";
 }
     return a.exec();
 }

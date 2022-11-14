@@ -2,8 +2,13 @@
 #include "ui_mainwindow.h"
 #include "employe.h"
 #include "modify.h"
+#include "pdf.h"
 #include <qdebug.h>
+#include"smtp.h"
+#include <QSound>
+#include "stat1.h"
 #include "QMessageBox"
+#include <QMediaPlayer>
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -107,9 +112,13 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    //for email tab
+    connect(ui->sendBtn, SIGNAL(clicked()),this, SLOT(sendMail()));
+    connect(ui->browseBtn, SIGNAL(clicked()), this, SLOT(browse()));
+
     ui->tableView->setModel(g.Afficher());
     ui->tableView_delete->setModel(d.Afficher_2());
-
+    setWindowTitle("EMPLOYEES MANAGMENT");
     qDebug()<<"start";
 }
 
@@ -129,6 +138,7 @@ void MainWindow::on_modify_clicked() //second window opener function //
 
 void MainWindow::on_pushButton_clicked()
 {
+
     QString id = ui->lineID_E->text();
     QString nom = ui->lineNom_E->text();
     QString prenom = ui->linePrenom_E->text();
@@ -154,6 +164,8 @@ void MainWindow::on_pushButton_clicked()
     {
     if(test)
         {
+        QSound s("C:/Users/khalil/OneDrive/Bureau/FINAL/click.wav");
+        s.play();
         E.Ajouter();
         QMessageBox::information(nullptr, QObject::tr("database is open"),
                                      QObject::tr("Ajout avec succés.\nClick Cancel to exit."), QMessageBox::Ok);
@@ -252,3 +264,59 @@ void MainWindow::on_radioButton_clicked()
                        ui->tableView_delete->setModel(g.Afficher());
                    }
 }
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    pdf p;
+    p.setModal(true);
+    p.exec();
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+    stat1 *w = new stat1();
+               w->make_salary();
+               w->make_nationalite();
+               w->show();
+}
+
+// mail //
+void  MainWindow::browse()
+{
+    files.clear();
+
+    QFileDialog dialog(this);
+    dialog.setDirectory(QDir::homePath());
+    dialog.setFileMode(QFileDialog::ExistingFiles);
+
+    if (dialog.exec())
+        files = dialog.selectedFiles();
+
+    QString fileListString;
+    foreach(QString file, files)
+    fileListString.append( "\"" + QFileInfo(file).fileName() + "\" " );
+    ui->file->setText( fileListString );
+
+}
+void   MainWindow::sendMail()
+{
+    Smtp* smtp = new Smtp("khalil.bouazizi@esprit.tn",ui->mail_pass->text(), "smtp.gmail.com");
+    connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
+
+
+    if( !files.isEmpty() )
+        smtp->sendMail("", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText(), files );
+    else
+        smtp->sendMail(" ", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
+}
+void   MainWindow::mailSent(QString status)
+{
+    if(status == "Message sent")
+    QMessageBox::information( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+    ui->rcpt->clear();
+    ui->subject->clear();
+    ui->file->clear();
+    ui->msg->clear();
+    ui->mail_pass->clear();
+}
+

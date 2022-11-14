@@ -6,6 +6,7 @@
 
 
 QT+=sql
+QT       += core gui sql network multimedia multimediawidgets charts printsupport widgets axcontainer
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,23 +27,38 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    authentification.cpp \
     employe.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
-    modify.cpp
+    modify.cpp \
+    pdf.cpp \
+    smtp.cpp \
+    stat1.cpp
 
 HEADERS += \
+    authentification.h \
     employe.h \
         mainwindow.h \
     connection.h \
-    modify.h
+    modify.h \
+    pdf.h \
+    smtp.h \
+    stat1.h
 
 FORMS += \
+        authentification.ui \
         mainwindow.ui \
-        modify.ui
+        modify.ui \
+        pdf.ui \
+        stat1.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    images.qrc \
+    resources.qrc

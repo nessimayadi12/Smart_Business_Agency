@@ -17,19 +17,11 @@ public:
     ~modify();
 
 private slots:
-    void on_confirm_delete_clicked();
-
-    void on_confirm_modify_clicked();
-
-
     void on_pushButton_clicked();
-
-    void on_confirm_clicked();
 
 private:
     Ui::modify *ui;
     Employe e ;
-    Employe g ;
 };
 
 #endif // MODIFY_H
