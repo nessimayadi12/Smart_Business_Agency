@@ -20,10 +20,13 @@ authentification::~authentification()
 void authentification::on_pushButton_clicked()
 {
     QString username = ui->userline->text();
-    QString password = ui->passwordline->text(); 
+    QString password = ui->passwordline->text();
+
 
     if (username == "khalil" && password == "khalil")
     {
+        hide();
+        qDebug()<<"WELCOME !";
         menu.show();
 
     }

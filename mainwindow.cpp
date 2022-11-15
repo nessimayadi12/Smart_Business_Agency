@@ -167,15 +167,14 @@ void MainWindow::on_pushButton_clicked()
         QSound s("C:/Users/khalil/OneDrive/Bureau/FINAL/click.wav");
         s.play();
         E.Ajouter();
-        QMessageBox::information(nullptr, QObject::tr("database is open"),
-                                     QObject::tr("Ajout avec succés.\nClick Cancel to exit."), QMessageBox::Ok);
+        QMessageBox::information(nullptr, QObject::tr("ADD EMPLOYEE"),
+                                     QObject::tr("THE EMPLOYEE HAS BEEN ADDED SUCCESSFULLY.\nClick Cancel to exit."), QMessageBox::Ok);
 
         }
         else
         {
-        QMessageBox::information(nullptr, QObject::tr("database is not open"),
-                                QObject::tr("Ajout échoué.\nClick Cancel to exit."), QMessageBox::Ok);
-        qDebug() << "test";
+        QMessageBox::critical(nullptr, QObject::tr("ADD EMPLOYEE"),
+                                QObject::tr("THE EMPLOYEE HAS BEEN ADDED SUCCESSFULLY.\nClick Cancel to exit."), QMessageBox::Ok);
         }
     ui->tableView->setModel(g.Afficher());
     ui->tableView_delete->setModel(g.Afficher());
@@ -212,15 +211,15 @@ void MainWindow::on_pushButton_2_clicked()// delete //
      if(test)
      {
 
-          QMessageBox::information(nullptr, QObject::tr("OK"),
-                                  QObject::tr("suppression effectué.\n"
-                                              "Click Cancel to exit."), QMessageBox::Cancel);
+          QMessageBox::information(nullptr, QObject::tr("DELETE EMPLOYEE"),
+                                  QObject::tr("THE EMPLOYEE HAS BEEN DELETED SUCCESSFULLY.\n"
+                                              "CLICK OK TO EXIST."), QMessageBox::Ok);
            }
                else
          {
-         QMessageBox::information(nullptr, QObject::tr("supprimer equipement"),
-                               QObject::tr("suppression echouée.\n"
-                                         "Click Cancel to exit."), QMessageBox::Cancel);
+         QMessageBox::information(nullptr, QObject::tr("DELETE EMPLOYEE"),
+                               QObject::tr("THE EMPLOYEE HASN'T BEEN DELETED.\n"
+                                         "CLICK OK TO EXIST."), QMessageBox::Ok);
          }
 ui->tableView->setModel(g.Afficher());
 ui->tableView_delete->setModel(g.Afficher());
@@ -256,8 +255,7 @@ void MainWindow::on_radioButton_clicked()
                    {
                             ui->tableView->setModel(model);
                             ui->tableView->show();
-                            msgBox.setText("Tri avec succés.");
-                            msgBox.exec();
+                            qDebug()<<"TRI DONE" ;
                    }
                    else {
                        ui->tableView->setModel(g.Afficher());
@@ -270,6 +268,7 @@ void MainWindow::on_pushButton_3_clicked()
     pdf p;
     p.setModal(true);
     p.exec();
+    qDebug()<<"pdf window open";
 }
 
 void MainWindow::on_pushButton_4_clicked()
@@ -278,6 +277,7 @@ void MainWindow::on_pushButton_4_clicked()
                w->make_salary();
                w->make_nationalite();
                w->show();
+               qDebug()<<"stat window open";
 }
 
 // mail //
@@ -298,21 +298,22 @@ void  MainWindow::browse()
     ui->file->setText( fileListString );
 
 }
+
 void   MainWindow::sendMail()
 {
-    Smtp* smtp = new Smtp("khalil.bouazizi@esprit.tn",ui->mail_pass->text(), "smtp.gmail.com");
+    Smtp* smtp = new Smtp("khalil.bouazizi@esprit.tn",ui->mail_pass->text(),"smtp.gmail.com");
     connect(smtp, SIGNAL(status(QString)), this, SLOT(mailSent(QString)));
 
-
     if( !files.isEmpty() )
-        smtp->sendMail("", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText(), files );
+        smtp->sendMail(" ", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText(), files );
     else
-        smtp->sendMail(" ", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
+        smtp->sendMail("", ui->rcpt->text() , ui->subject->text(),ui->msg->toPlainText());
 }
+
 void   MainWindow::mailSent(QString status)
 {
     if(status == "Message sent")
-    QMessageBox::information( nullptr, tr( "Qt Simple SMTP client" ), tr( "Message sent!\n\n" ) );
+    QMessageBox::warning(nullptr, tr( "MAILLING" ), tr( "MESSAGE SENT\n\n" ) );
     ui->rcpt->clear();
     ui->subject->clear();
     ui->file->clear();

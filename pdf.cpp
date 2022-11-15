@@ -13,6 +13,7 @@ pdf::pdf(QWidget *parent) :
     ui(new Ui::pdf)
 {
     ui->setupUi(this);
+    setWindowTitle("PDF");
 }
 
 pdf::~pdf()
@@ -22,7 +23,7 @@ pdf::~pdf()
 
 void pdf::on_pushButton_clicked() // pdf //
 {
-    QPdfWriter pdf("C:/Users/khalil/OneDrive/Bureau/5lil.pdf");
+    QPdfWriter pdf("C:/Users/khalil/OneDrive/Bureau/DETAILS.pdf");
     QPainter painter(&pdf);
     QString id = ui->line_pdf->text();
     QSqlQuery test ;
@@ -34,7 +35,7 @@ void pdf::on_pushButton_clicked() // pdf //
   if (test.value(0).toInt() == 1)
   {
     QSqlQuery query ;
-    query.prepare("select IDENTIFIANT_E , NOM_E ,PRENOM_E , STATUS_E , PHONE_E , MAIL_E from EMPLOYES where IDENTIFIANT_E= :id");
+    query.prepare("select IDENTIFIANT_E , NOM_E ,PRENOM_E , STATUS_E , PHONE_E , MAIL_E , AGE_E , SALAIRE_E , NATIONALITE_E , DATE_AJOUT_E , EMP_IDENTIFIANT_E from EMPLOYES where IDENTIFIANT_E= :id");
     query.bindValue(":id",id);
     query.exec();
     if (query.next())
@@ -45,32 +46,46 @@ void pdf::on_pushButton_clicked() // pdf //
     QString status = query.value(3).toString();
     QString phone = query.value(4).toString();
     QString mail= query.value(5).toString();
-    painter.setPen(Qt::red);
-    painter.drawText(100,300,"ERAAAA");
-    painter.drawText(200,500,"IDENTIFIANT : ");
-    painter.drawText(100,500,"NOM : ");
-    painter.drawText(100,500,"PRENOM : ");
-    painter.drawText(100,500,"STATUS : ");
-    painter.drawText(100,500,"PHONE : ");
+    QString age = query.value(6).toString();
+    QString salary = query.value(7).toString();
+    QString nat= query.value(8).toString();
+    QString date = query.value(9).toString();
+    QString id_chef = query.value(10).toString();
 
-     painter.setPen(Qt::black);
-    painter.drawText(720,500,ident);
-    painter.drawText(720,700,nom);
-    painter.drawText(720,900,prenom);
-    painter.drawText(720,1100,status);
-    painter.drawText(720,1300,phone);
-    painter.drawText(720,1500,mail);
+    painter.setPen(Qt::red);
+    painter.drawText(600,500,"IDENTIFIANT : ");
+    painter.drawText(600,700,"NOM : ");
+    painter.drawText(600,900,"PRENOM : ");
+    painter.drawText(600,1100,"STATUS : ");
+    painter.drawText(600,1300,"PHONE NUMBER : ");
+    painter.drawText(600,1500,"MAIL : ");
+    painter.drawText(600,1700,"AGE : ");
+    painter.drawText(600,1900,"SALARY : ");
+    painter.drawText(600,2100,"NATIONALITY : ");
+    painter.drawText(600,2300,"RECRRUITMENT DATE : ");
+    painter.drawText(600,2500,"IDENTIFIANT CHEF : ");
+
+
+    painter.setPen(Qt::black);
+    painter.drawText(1500,500,ident);
+    painter.drawText(1500,700,nom);
+    painter.drawText(1500,900,prenom);
+    painter.drawText(1500,1100,status);
+    painter.drawText(1700,1300,phone);
+    painter.drawText(1500,1500,mail);
+    painter.drawText(1500,1700,age);
+    painter.drawText(1500,1900,salary);
+    painter.drawText(1700,2100,nat);
+    painter.drawText(2000,2300,date);
+    painter.drawText(1850,2500,id_chef);
     painter.end();
-    QMessageBox::information(nullptr, QObject::tr("OK"),
-                            QObject::tr("pdf done.\n"
-                                         "Click ok to exit."), QMessageBox::Ok);
+
     }
+    qDebug()<<"PDF DONE";
  }
   else
   {
-      QMessageBox::information(nullptr, QObject::tr("OK"),
-                              QObject::tr("pdf not done.\n"
-                                          "Click ok to exit."), QMessageBox::Ok);
+     qDebug()<<"PDF NOT DONE";
   }
   }
 }

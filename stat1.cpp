@@ -10,6 +10,7 @@ stat1::stat1(QWidget *parent) :
     ui(new Ui::stat1)
 {
     ui->setupUi(this);
+    setWindowTitle("STATISTICS");
 }
 
 stat1::~stat1()
@@ -45,19 +46,19 @@ void stat1::make_nationalite()
 
      QPieSeries *series;
               series= new  QPieSeries();
-              series->append("TUNISIAN NATIONALITY"+Nat_tn+"%",nat_tn);
-              series->append("FRENCH NATIONALITY"+Nat_fr+"%",nat_fr);
+              series->append("TUNISIAN NATIONALITY "+Nat_tn+"%",nat_tn);
+              series->append("FRENCH NATIONALITY "+Nat_fr+"%",nat_fr);
               QPieSlice *slice0 = series->slices().at(0);
      slice0->setLabelVisible();
      QPieSlice *slice1 = series->slices().at(1);
                   slice1->setExploded();
                   slice1->setLabelVisible();
-                  slice1->setPen(QPen(Qt::darkRed, 2));
-                  slice1->setBrush(Qt::black);
+                  slice1->setPen(QPen(Qt::red, 2));
+                  slice1->setBrush(Qt::blue);
 
                    QChart *chart = new QChart();
                    chart->addSeries(series);
-                   chart->setTitle("Statistiques sur les nationalites des employes");
+                   chart->setTitle("Statistics on employees nationalities");
                    chart->legend()->show();
                    QChartView *chartView = new QChartView(chart);
                    chartView->setRenderHint(QPainter::Antialiasing);
@@ -99,12 +100,12 @@ void stat1::make_salary()
      QPieSlice *slice1 = series->slices().at(1);
                   slice1->setExploded();
                   slice1->setLabelVisible();
-                  slice1->setPen(QPen(Qt::darkRed, 2));
-                  slice1->setBrush(Qt::black);
+                  slice1->setPen(QPen(Qt::blue, 2));
+                  slice1->setBrush(Qt::red);
 
                    QChart *chart = new QChart();
                    chart->addSeries(series);
-                   chart->setTitle("Statistiques sur le mode de travail");
+                   chart->setTitle("Employees work style statistics");
                    chart->legend()->show();
                    QChartView *chartView = new QChartView(chart);
                    chartView->setRenderHint(QPainter::Antialiasing);
