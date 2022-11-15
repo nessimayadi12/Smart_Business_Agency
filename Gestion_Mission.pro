@@ -1,6 +1,6 @@
-QT       += core gui  printsupport
+QT       += core gui sql printsupport charts
 QT += sql
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets quickwidgets
 
 CONFIG += c++11
 
@@ -19,17 +19,27 @@ SOURCES += \
     connection.cpp \
     main.cpp \
     mainwindow.cpp \
-    mission.cpp
+    map.cpp \
+    mission.cpp \
+    stat_combo.cpp
 
 HEADERS += \
     connection.h \
     mainwindow.h \
-    mission.h
+    map.h \
+    mission.h \
+    stat.h \
+    stat_combo.h
 
 FORMS += \
-    mainwindow.ui
+    mainwindow.ui \
+    map.ui \
+    stat_combo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    qml.qrc

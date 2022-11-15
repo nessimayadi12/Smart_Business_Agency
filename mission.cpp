@@ -139,7 +139,7 @@ QSqlQueryModel* Mission::Trouver(QString recherche){
     QSqlQueryModel* trouve = new QSqlQueryModel();
 
 
-       trouve->setQuery("SELECT * FROM EMPLOYER WHERE ID_M LIKE '%"+recherche+"%' ");
+       trouve->setQuery("SELECT * FROM missions WHERE ID_M LIKE '%"+recherche+"%' ");
 
        trouve->setHeaderData(0, Qt::Horizontal, QObject::tr("Identfiant"));
        trouve->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom"));

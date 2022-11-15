@@ -49,19 +49,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
     <property name="title">
      <string>Formulaire</string>
     </property>
-    <widget class="QPushButton" name="pushButton_10">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>20</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Clear</string>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_30">
      <property name="geometry">
       <rect>
@@ -350,23 +337,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Nom d'utilisateur</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_44">
-    <property name="geometry">
-     <rect>
-      <x>910</x>
-      <y>490</y>
-      <width>271</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
-font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>La participation des sociétés et des individuels</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_45">
     <property name="geometry">
      <rect>
@@ -380,7 +350,7 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>TextLabel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_14">
+   <widget class="QPushButton" name="map">
     <property name="geometry">
      <rect>
       <x>650</x>
@@ -394,22 +364,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
     </property>
     <property name="text">
      <string>Itinéraire</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Rechercher">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>350</y>
-      <width>241</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
-    </property>
-    <property name="text">
-     <string>Rechercher (Par identifiant) :</string>
     </property>
    </widget>
    <widget class="QScrollBar" name="verticalScrollBar">
@@ -624,7 +578,7 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <widget class="QPushButton" name="pb_PDF">
     <property name="geometry">
      <rect>
-      <x>1010</x>
+      <x>760</x>
       <y>350</y>
       <width>111</width>
       <height>31</height>
@@ -669,15 +623,29 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Trier par identifiant</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="stat">
+    <property name="geometry">
+     <rect>
+      <x>760</x>
+      <y>390</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
+    </property>
+    <property name="text">
+     <string>Statistiques</string>
+    </property>
+   </widget>
    <zorder>label_49</zorder>
    <zorder>label_29</zorder>
    <zorder>Formulaire</zorder>
    <zorder>pushButton_13</zorder>
    <zorder>label_42</zorder>
-   <zorder>label_44</zorder>
    <zorder>label_45</zorder>
-   <zorder>pushButton_14</zorder>
-   <zorder>Rechercher</zorder>
+   <zorder>map</zorder>
    <zorder>verticalScrollBar</zorder>
    <zorder>label_47</zorder>
    <zorder>label_48</zorder>
@@ -694,6 +662,7 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <zorder>pb_PDF</zorder>
    <zorder>Tri</zorder>
    <zorder>Tri_2</zorder>
+   <zorder>stat</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

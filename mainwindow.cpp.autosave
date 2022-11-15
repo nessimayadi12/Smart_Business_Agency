@@ -1,23 +1,36 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "connection.h"
 #include "mission.h"
-#include<QMessageBox>
-#include<QIntValidator>
-#include<QValidator>
-#include<QPrinter>
-#include<QPainter>
-#include<QSqlQuery>
-#include<QSqlQueryModel>
-#include<QSqlError>
-#include<QPdfWriter>
-#include<QDesktopServices>
-#include<QUrl>
+#include "map.h"
+#include "stat_combo.h"
+#include <QIntValidator>
+#include <QTableView>
+#include <QMessageBox>
+#include <QValidator>
+#include <QPixmap>
+#include <QPrinter>
+#include <QPainter>
+#include <QPrintDialog>
+#include <QPrintPreviewDialog>
+#include <QSqlQueryModel>
+#include <QSqlError>
+#include <QPdfWriter>
+#include <QtCharts>
+#include <QDesktopServices>
+#include <QtCharts/QAreaSeries>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QPieSlice>
+#include <QPieSeries>
+#include <QChartView>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     ui->tab_mission->setModel(M.afficher());
     //controle de saisie
     ui->le_id->setValidator (new QIntValidator (0,999999,this));
@@ -233,20 +246,7 @@ void MainWindow::on_Tri_2_clicked()
     ui->tab_mission->setModel(M.tri2());
 }
 
-
-/*void MainWindow::on_Rechercher_clicked()
-{
-    ui->le_id_supp->setValidator( new QIntValidator(0, 999999, this));
-    if(ui->le_id_supp->text()!="")
-    {
-      QString recherche=ui->le_id_supp->text();
-      ui->tab_mission->setModel(M.Trouver(recherche));
-    }
-    else
-     ui->tab_mission->setModel(M.afficher());
-}*/
-
-void MainWindow::on_Rechercher_windowIconTextChanged(const QString &arg1)
+void MainWindow::on_le_id_supp_textChanged(const QString &arg1)            //rechercher a partir le line edit supprimer//   //arg1 est un variable par defaut a partir le syntaxe//
 {
     ui->le_id_supp->setValidator( new QIntValidator(0, 999999, this));
     if(ui->le_id_supp->text()!="")
@@ -257,3 +257,22 @@ void MainWindow::on_Rechercher_windowIconTextChanged(const QString &arg1)
     else
      ui->tab_mission->setModel(M.afficher());
 }
+
+
+void MainWindow::on_stat_clicked()
+{
+    s = new stat_combo();
+
+  s->setWindowTitle("statistique ComboBox");
+  s->choix_pie();
+  s->show();
+}
+
+
+void MainWindow::on_map_clicked()
+{
+    m= new Map(this);
+    m->show();
+
+}
+
