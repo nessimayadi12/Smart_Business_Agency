@@ -258,6 +258,7 @@ void MainWindow::on_radioButton_clicked()
                             qDebug()<<"TRI DONE" ;
                    }
                    else {
+
                        ui->tableView->setModel(g.Afficher());
                        ui->tableView_delete->setModel(g.Afficher());
                    }
