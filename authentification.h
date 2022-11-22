@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "menu.h"
 
 namespace Ui {
 class authentification;
@@ -20,7 +21,7 @@ private slots:
     void on_pushButton_clicked();
 private:
     Ui::authentification *ui;
-    MainWindow menu;
+    menu m ;
 };
 
 #endif // AUTHENTIFICATION_H

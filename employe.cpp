@@ -84,7 +84,6 @@ if (test.value(0).toInt() == 1)
     return false;
   }
 }
-
 QSqlQueryModel * Employe::researchid(QString i)
 {
     QSqlQueryModel * model= new QSqlQueryModel();

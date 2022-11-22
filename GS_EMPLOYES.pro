@@ -32,6 +32,7 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
+    menu.cpp \
     modify.cpp \
     pdf.cpp \
     smtp.cpp \
@@ -42,6 +43,7 @@ HEADERS += \
     employe.h \
         mainwindow.h \
     connection.h \
+    menu.h \
     modify.h \
     pdf.h \
     smtp.h \
@@ -50,6 +52,7 @@ HEADERS += \
 FORMS += \
         authentification.ui \
         mainwindow.ui \
+        menu.ui \
         modify.ui \
         pdf.ui \
         stat1.ui

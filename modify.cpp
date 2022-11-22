@@ -32,8 +32,7 @@ void modify::on_pushButton_clicked()
     bool test_modify = e.Modifier(id,status,phone,mail,salaire,id_emp);
     if (test_modify)
     {
-        QSound s("C:/Users/khalil/OneDrive/Bureau/FINAL/click.wav");
-        s.play();
+
         qDebug() << "test";
         ui->table_modify->setModel(e.Afficher());
         QMessageBox::information(nullptr, QObject::tr("YESS :)"),
