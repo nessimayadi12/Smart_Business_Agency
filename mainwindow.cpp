@@ -271,7 +271,6 @@ void MainWindow::on_stat_clicked()
 
 void MainWindow::on_map_clicked()
 {
-    hide();
     m= new Map(this);
     m->show();
 
