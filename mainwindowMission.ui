@@ -639,32 +639,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Statistiques</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="arduino_pb">
-    <property name="geometry">
-     <rect>
-      <x>760</x>
-      <y>40</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Arduino</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="arduino_label">
-    <property name="geometry">
-     <rect>
-      <x>850</x>
-      <y>40</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <zorder>label_49</zorder>
    <zorder>label_29</zorder>
    <zorder>Formulaire</zorder>
@@ -689,8 +663,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
    <zorder>Tri</zorder>
    <zorder>Tri_2</zorder>
    <zorder>stat</zorder>
-   <zorder>arduino_pb</zorder>
-   <zorder>arduino_label</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

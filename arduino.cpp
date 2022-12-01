@@ -1,91 +1,108 @@
 #include "arduino.h"
+#include <QSqlQuery>
+#include <QSqlQueryModel>
+#include <QSqlDatabase>
+#include <QObject>
+#include "mainwindowMission.h"
 
-arduino::arduino()
+Arduino::Arduino()
 {
     data="";
     arduino_port_name="";
     arduino_is_available=false;
-    Serial=new QSerialPort ;
-}
-QString arduino::getarduino_port_name()
-{
-
-    return arduino_port_name ;
-
+    serial=new QSerialPort;
 }
 
-QSerialPort *arduino::getserial()
+QString Arduino::getarduino_port_name()
 {
-
-    return Serial;
+    return arduino_port_name;
 }
 
-int arduino::connect_arduino()
+QSerialPort *Arduino::getserial()
 {
-    foreach (const QSerialPortInfo &serial_port_info,QSerialPortInfo::availablePorts())
-    {
-        if(serial_port_info.hasVendorIdentifier() && serial_port_info.hasProductIdentifier())
-        {
-            if (serial_port_info.vendorIdentifier()== arduino_uno_vendor_id && serial_port_info.productIdentifier()== arduino_uno_producy_id)
-            {
-                arduino_is_available=true ;
-                arduino_port_name=serial_port_info.portName();
+   return serial;
+}
+int Arduino::connect_arduino()
+{   // recherche du port sur lequel la carte arduino identifée par  arduino_uno_vendor_id
+    // est connectée
+    serialbuffer="";
+    foreach (const QSerialPortInfo &serial_port_info, QSerialPortInfo::availablePorts()){
+           if(serial_port_info.hasVendorIdentifier() && serial_port_info.hasProductIdentifier()){
+               if(serial_port_info.vendorIdentifier() == arduino_uno_vendor_id && serial_port_info.productIdentifier()
+                       == arduino_uno_producy_id) {
+                   arduino_is_available = true;
+                   arduino_port_name=serial_port_info.portName();
+               } } }
 
+        qDebug() << "arduino_port_name is :" << arduino_port_name;
+        if(arduino_is_available){
+            serial->setPortName(arduino_port_name);
+            if(serial->open(QSerialPort::ReadWrite)){
+                serial->setBaudRate(QSerialPort::Baud9600);
+                serial->setDataBits(QSerialPort::Data8);
+                serial->setParity(QSerialPort::NoParity);
+                serial->setStopBits(QSerialPort::OneStop);
+                serial->setFlowControl(QSerialPort::NoFlowControl);
+                return 0;
             }
+            return 1;
         }
-
-    }
-    qDebug() <<"arduino_port_name is :" <<arduino_port_name ;
-    if(arduino_is_available)
-    {
-        Serial->setPortName(arduino_port_name);
-        if(Serial->open(QSerialPort::ReadWrite))
-        {
-            Serial->setBaudRate(QSerialPort::Baud115200);//débit : 9600bits/s
-            Serial->setDataBits(QSerialPort::Data8);//Longeur de donnée : 8bits
-            Serial->setParity(QSerialPort::NoParity);//1 bit de parite optionnel
-            Serial->setStopBits(QSerialPort::OneStop);//Nombre de bit de stop 1
-            Serial->setFlowControl(QSerialPort::NoFlowControl);
-            return 0 ;
-
-        }
-        return 1;
-
-    }
-    return -1;
-
+        return -1;
 }
-int arduino::close_arduino()
+
+int Arduino::close_arduino()
+
 {
 
-    if(Serial->isOpen())
-    {
-        Serial->close();
-        return 0;
-    }
+    if(serial->isOpen()){
+            serial->close();
+            return 0;
+        }
     return 1;
 
-}
-
-QByteArray arduino::read_from_arduino()
-{
-
-    if (Serial->isReadable()){
-
-        data=Serial->readAll();//récuperer les données réçues
-       return data;
-    }
-
 
 }
 
-int arduino::write_to_arduino( QByteArray d)
-{
-    if (Serial->isWritable())
-    {
-       Serial->write(d);
 
+ QByteArray Arduino::read_from_arduino()
+{
+
+    if(serial->isReadable()){
+        serial->waitForReadyRead(10);
+         data=serial->readAll();
+         return data;
     }
-    else {qDebug()<<"couldn't write to Arduino !";}
+ }
+
+ int Arduino::cherchercode(int ID_M){
+
+     QSqlDatabase bd = QSqlDatabase::database();
+ int id;
+         QSqlQuery query;
+         query.prepare("SELECT ID_M FROM MISSIONS WHERE ID_M =:ID_M");
+         query.bindValue(":ID_M", ID_M);
+
+         query.exec();
+         if (query.next())
+         {
+
+             id=query.value(0).toInt();
+              return id;
+         }
+         else {
+             return -1;
+         }
+
+ }
+ QByteArray Arduino::getdata()
+ {
+     return data;
+ }
+int Arduino::write_to_arduino( QByteArray d)
+
+{
+    serial->write(d);
+
+
 
 }

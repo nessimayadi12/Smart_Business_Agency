@@ -20,7 +20,7 @@ SOURCES += \
     arduino.cpp \
     connection.cpp \
     main.cpp \
-    mainwindow.cpp \
+    mainwindowMission.cpp \
     map.cpp \
     mission.cpp \
     stat_combo.cpp
@@ -28,14 +28,14 @@ SOURCES += \
 HEADERS += \
     arduino.h \
     connection.h \
-    mainwindow.h \
+    mainwindowMission.h \
     map.h \
     mission.h \
     stat.h \
     stat_combo.h
 
 FORMS += \
-    mainwindow.ui \
+    mainwindowMission.ui \
     map.ui \
     stat_combo.ui
 

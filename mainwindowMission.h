@@ -1,5 +1,5 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOWMISSION_H
+#define MAINWINDOWMISSION_H
 #include"mission.h"
 #include <QMainWindow>
 #include "stat_combo.h"
@@ -20,6 +20,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void update_label();
+
 
 private slots:
     void on_pb_ajouter_clicked();
@@ -35,7 +37,7 @@ private slots:
 
     void on_map_clicked();
 
-    void on_arduino_pb_clicked();
+    void test();
 
 
 private:
@@ -45,10 +47,9 @@ private:
     stat_combo *s;
     Map *m;
     //arduino
-    QByteArray data;
-    arduino A;
-    QSqlDatabase test_bd;
+    Arduino A;
+    QByteArray data; // variable contenant les données reçues
 
 };
 
-#endif // MAINWINDOW_H
+#endif // MAINWINDOWMISSION_H
