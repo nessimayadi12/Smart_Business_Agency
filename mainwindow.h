@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "stat_combo.h"
 #include "map.h"
+#include "arduino.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -34,12 +35,19 @@ private slots:
 
     void on_map_clicked();
 
+    void on_arduino_pb_clicked();
+
+
 private:
     Ui::MainWindow *ui;
     Mission M1;
     Mission M;
     stat_combo *s;
     Map *m;
+    //arduino
+    QByteArray data;
+    arduino A;
+    QSqlDatabase test_bd;
 
 };
 

@@ -25,6 +25,7 @@
 #include <QPieSeries>
 #include <QChartView>
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -276,3 +277,47 @@ void MainWindow::on_map_clicked()
 
 }
 
+
+void MainWindow::on_arduino_pb_clicked()
+{
+    Connection c;
+
+    data=A.read_from_arduino();
+
+    ui->arduino_label->setText(data);
+
+    QSqlQuery query(test_bd);
+    QString select = "SELECT ID_M from MISSIONS where ID_M=?";
+    qDebug() << select;
+    query.prepare(select);
+    query.addBindValue(ui->arduino_label->text());
+    query.exec();
+   if (query.exec())
+    {
+
+        int count=0;
+        while (query.next())
+        {
+            count++;
+        }
+        if (count==1)
+        {
+
+            A.write_to_arduino("1");
+            ui->arduino_label->setText("Welcome ");
+
+        }
+
+         else if (count<1)
+        {
+            A.write_to_arduino("0");
+
+        }
+    }
+   if (data=="2"){
+         ui->arduino_label->setText("No More Places");
+
+   }
+    //afficher on si les données reçues par arduino est 1
+
+}
