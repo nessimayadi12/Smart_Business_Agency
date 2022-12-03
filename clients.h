@@ -4,6 +4,8 @@
 #include <QSqlQuery>
 #include <QSqlQueryModel>
 #include <QTableView>
+
+//
 class clients
 {
 public :

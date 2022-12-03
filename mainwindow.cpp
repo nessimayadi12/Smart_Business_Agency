@@ -21,7 +21,7 @@
 #include <QPieSeries>
 #include <QChartView>
 
-
+//aaa
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

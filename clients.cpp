@@ -3,6 +3,8 @@
 #include <QtDebug>
 #include <QPdfWriter>
 #include<QPainter>
+
+//aaaa
 clients::clients()
 {
     cin="";
