@@ -20,22 +20,21 @@ stat1::~stat1()
 
 void stat1::make_nationalite()
 {
-    qDebug()<<"pst";
     int total;
     int nat_tn ;
-    int nat_fr=0 ;
+    int nat_fr ;
     QString Nat_tn;
     QString Nat_fr;
     QSqlQuery q;
-    q.prepare("SELECT COUNT(IDENTIFIANT_E) FROM EMPLOYES where NATIONALITE_E ='TN' ");
+    q.prepare("SELECT COUNT(IDENTIFIANT_E) FROM EMPLOYES where AGE_E<40 ");
             q.exec();
             q.first() ;
             nat_tn=(q.value(0).toInt());
-    q.prepare("SELECT COUNT(IDENTIFIANT_E) FROM EMPLOYES where NATIONALITE_E ='FR' ");
+    q.prepare("SELECT COUNT(IDENTIFIANT_E) FROM EMPLOYES where AGE_E>40 ");
             q.exec();
             q.first() ;
             nat_fr=(q.value(0).toInt());
-            q.prepare("SELECT COUNT(IDENTIFIANT_E) FROM EMPLOYES ");
+    q.prepare("SELECT COUNT(AGE_E) FROM EMPLOYES ");
                     q.exec();
                     q.first() ;
                     total=(q.value(0).toInt());
@@ -46,8 +45,8 @@ void stat1::make_nationalite()
 
      QPieSeries *series;
               series= new  QPieSeries();
-              series->append("TUNISIAN NATIONALITY "+Nat_tn+"%",nat_tn);
-              series->append("FRENCH NATIONALITY "+Nat_fr+"%",nat_fr);
+              series->append("WORKERS WITH AGE BETWEEN 25 AND 40 : "+Nat_tn+"%",nat_tn);
+              series->append("WORKERS WITH AGE BETWEEN 41 AND 60 : "+Nat_fr+"%",nat_fr);
               QPieSlice *slice0 = series->slices().at(0);
      slice0->setLabelVisible();
      QPieSlice *slice1 = series->slices().at(1);
@@ -58,12 +57,12 @@ void stat1::make_nationalite()
 
                    QChart *chart = new QChart();
                    chart->addSeries(series);
-                   chart->setTitle("Statistics on employees nationalities");
+                   chart->setTitle("AGE STATISTICS");
                    chart->legend()->show();
                    QChartView *chartView = new QChartView(chart);
                    chartView->setRenderHint(QPainter::Antialiasing);
 ui->verticalLayout1->addWidget(chartView);
-qDebug()<<"pst";
+qDebug()<<"stat age employee done";
 }
 
 void stat1::make_salary()
@@ -105,11 +104,10 @@ void stat1::make_salary()
 
                    QChart *chart = new QChart();
                    chart->addSeries(series);
-                   chart->setTitle("Employees work style statistics");
+                   chart->setTitle("WORK STYLE STATISTICS");
                    chart->legend()->show();
                    QChartView *chartView = new QChartView(chart);
                    chartView->setRenderHint(QPainter::Antialiasing);
 ui->verticalLayout2->addWidget(chartView);
-qDebug()<<"pst";
-
+qDebug()<<"stat employee done";
 }

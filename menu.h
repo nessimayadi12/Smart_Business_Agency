@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include "mainwindow.h"
+#include "gestion_missions.h"
 
 namespace Ui {
 class menu;
@@ -31,6 +32,7 @@ public:
     Ui::menu *ui;
 private:
     MainWindow khalil;
+    gestion_missions Achref;
 };
 
 #endif // MENU_H

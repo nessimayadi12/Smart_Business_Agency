@@ -29,33 +29,41 @@ CONFIG += c++11
 SOURCES += \
     authentification.cpp \
     employe.cpp \
+    gestion_missions.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     menu.cpp \
+    mission.cpp \
     modify.cpp \
     pdf.cpp \
     smtp.cpp \
-    stat1.cpp
+    stat1.cpp \
+    stat_achref.cpp
 
 HEADERS += \
     authentification.h \
     employe.h \
+    gestion_missions.h \
         mainwindow.h \
     connection.h \
     menu.h \
+    mission.h \
     modify.h \
     pdf.h \
     smtp.h \
-    stat1.h
+    stat1.h \
+    stat_achref.h
 
 FORMS += \
         authentification.ui \
+        gestion_missions.ui \
         mainwindow.ui \
         menu.ui \
         modify.ui \
         pdf.ui \
-        stat1.ui
+        stat1.ui \
+        stat_achref.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -65,3 +73,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 RESOURCES += \
     images.qrc \
     resources.qrc
+
+DISTFILES +=

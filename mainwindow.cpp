@@ -153,8 +153,13 @@ void MainWindow::on_pushButton_clicked()
     Employe E(id, nom, prenom, status, mail, age, nat, phone, salaire, id_emp);
     bool test = true;
 
-
- if (ui->lineID_E->text().size() == 4 && valid_id(ui->lineID_E->text()) && ui->lineID_chef->text().size() == 4 && valid_id(ui->lineID_chef->text()))
+    if ( ui->lineNat_E->text() == "TUNISIA")
+    {
+    if (ui->spinAge_E->value()>=25 && ui->spinAge_E->value()<=60)
+    {
+    if (ui->lineSalaire_E->text().toInt()>=1500 && ui->lineSalaire_E->text().toInt()<=3500)
+    {
+    if (ui->lineID_E->text().size() == 4 && valid_id(ui->lineID_E->text()) && ui->lineID_chef->text().size() == 4 && valid_id(ui->lineID_chef->text()))
     {
      if (valid_names(ui->lineNom_E->text()) && valid_names(ui->linePrenom_E->text()))
      {
@@ -203,6 +208,24 @@ else
                                      QObject::tr("INVALID ID .\nClick CANCEL to exit."), QMessageBox::Ok);
  }
 }
+    else
+    {
+        QMessageBox::information(nullptr, QObject::tr("ERROR"),
+                                        QObject::tr("INVALID SALARY .\nClick CANCEL to exit."), QMessageBox::Ok);
+    }
+    }
+    else
+    {
+        QMessageBox::information(nullptr, QObject::tr("ERROR"),
+                                        QObject::tr("INVALID AGE VALUE.\nClick CANCEL to exit."), QMessageBox::Ok);
+    }
+    }
+    else
+    {
+        QMessageBox::information(nullptr, QObject::tr("ERROR"),
+                                        QObject::tr("ONLY TUNISIAN WORKERS EXIST.\nCLICK CANCEL TO RETURN."), QMessageBox::Ok);
+    }
+}
 
 void MainWindow::on_pushButton_2_clicked()// delete //
 {
@@ -213,13 +236,13 @@ void MainWindow::on_pushButton_2_clicked()// delete //
 
           QMessageBox::information(nullptr, QObject::tr("DELETE EMPLOYEE"),
                                   QObject::tr("THE EMPLOYEE HAS BEEN DELETED SUCCESSFULLY.\n"
-                                              "CLICK OK TO EXIST."), QMessageBox::Ok);
+                                              "CLICK OK TO RETURN."), QMessageBox::Ok);
            }
                else
          {
          QMessageBox::information(nullptr, QObject::tr("DELETE EMPLOYEE"),
-                               QObject::tr("THE EMPLOYEE HASN'T BEEN DELETED.\n"
-                                         "CLICK OK TO EXIST."), QMessageBox::Ok);
+                               QObject::tr("THE EMPLOYEE DOES NOT EXIST.\n"
+                                         "CLICK OK TO RETURN."), QMessageBox::Ok);
          }
 ui->tableView->setModel(g.Afficher());
 ui->tableView_delete->setModel(g.Afficher());

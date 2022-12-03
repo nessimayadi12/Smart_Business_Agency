@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1081</width>
-    <height>591</height>
+    <height>725</height>
    </rect>
   </property>
   <property name="palette">
@@ -461,8 +461,8 @@
   <widget class="QTableView" name="table_modify">
    <property name="geometry">
     <rect>
-     <x>330</x>
-     <y>30</y>
+     <x>380</x>
+     <y>120</y>
      <width>721</width>
      <height>501</height>
     </rect>
@@ -657,7 +657,7 @@
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
-     <x>100</x>
+     <x>120</x>
      <y>350</y>
      <width>93</width>
      <height>31</height>

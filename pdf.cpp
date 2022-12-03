@@ -32,8 +32,8 @@ void pdf::on_pushButton_clicked() // pdf //
     test.exec();
     if (test.next())
     {
-  if (test.value(0).toInt() == 1)
-  {
+    if (test.value(0).toInt() == 1)
+    {
     QSqlQuery query ;
     query.prepare("select IDENTIFIANT_E , NOM_E ,PRENOM_E , STATUS_E , PHONE_E , MAIL_E , AGE_E , SALAIRE_E , NATIONALITE_E , DATE_AJOUT_E , EMP_IDENTIFIANT_E from EMPLOYES where IDENTIFIANT_E= :id");
     query.bindValue(":id",id);
@@ -65,7 +65,6 @@ void pdf::on_pushButton_clicked() // pdf //
     painter.drawText(600,2300,"RECRRUITMENT DATE : ");
     painter.drawText(600,2500,"IDENTIFIANT CHEF : ");
 
-
     painter.setPen(Qt::black);
     painter.drawText(1500,500,ident);
     painter.drawText(1500,700,nom);
@@ -81,11 +80,11 @@ void pdf::on_pushButton_clicked() // pdf //
     painter.end();
 
     }
-    qDebug()<<"PDF DONE";
+    qDebug()<<"PDF EMPLOYEE DONE";
  }
   else
   {
-     qDebug()<<"PDF NOT DONE";
+     qDebug()<<"PDF EMPLOYEE NOT DONE";
   }
   }
 }

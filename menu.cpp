@@ -23,6 +23,11 @@ void menu::on_menu_employee_clicked()
     qDebug()<<"WELCOME KHALIL";
     khalil.show();
 }
+void menu::on_menu_missions_clicked()
+{
+   qDebug()<<"welcome achref";
+    Achref.show();
+}
 
 void menu::on_menu_customers_clicked()
 {
@@ -36,11 +41,7 @@ void menu::on_menu_sponsor_clicked()
                                QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
 }
 
-void menu::on_menu_missions_clicked()
-{
-    QMessageBox::information(nullptr, QObject::tr("WELCOME ACHREF"),
-                               QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
-}
+
 
 void menu::on_menu_transport_clicked()
 {

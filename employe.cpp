@@ -25,8 +25,16 @@ bool Employe::Ajouter(){ //YWRkIGVtcGxveWU=//
 
 bool Employe::Modifier(QString id,QString status,QString phone,QString mail,int salaire,QString id_emp) //update //
 {
+    QSqlQuery test ;
+    test.prepare("SELECT COUNT(*) from EMPLOYES where IDENTIFIANT_E= :id");
+    test.bindValue(":id",id);
+    test.exec();
+    if (test.next())
+    {
+  if (test.value(0).toInt() == 1)
+  {
     QSqlQuery query ;
-    query.prepare("UPDATE EMPLOYES SET IDENTIFIANT_E= :id,STATUS_E= :status,PHONE_E= :phone,MAIL_E= :mail,SALAIRE_E= :salaire,EMP_IDENTIFIANT_E= :id_emp");
+    query.prepare("UPDATE EMPLOYES SET STATUS_E= :status,PHONE_E= :phone,MAIL_E= :mail,SALAIRE_E= :salaire,EMP_IDENTIFIANT_E= :id_emp where IDENTIFIANT_E = :id");
     query.bindValue(":id",id);
     query.bindValue(":status",status);
     query.bindValue(":phone",phone);
@@ -34,6 +42,10 @@ bool Employe::Modifier(QString id,QString status,QString phone,QString mail,int 
     query.bindValue(":salaire",salaire);
     query.bindValue(":id_emp",id_emp);
     return query.exec();
+  }
+  else
+  {return false ; }
+    }
 }
 
 QSqlQueryModel * Employe::Afficher()
