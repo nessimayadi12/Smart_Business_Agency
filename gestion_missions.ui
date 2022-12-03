@@ -602,19 +602,6 @@ font: 75 10pt &quot;MS Shell Dlg 2&quot;;</string>
      <string>Modifier</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>420</y>
-      <width>47</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>TextLabel</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QLabel" name="label_64">
    <property name="geometry">
