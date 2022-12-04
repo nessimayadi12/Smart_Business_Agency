@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1184</width>
-    <height>795</height>
+    <width>1181</width>
+    <height>706</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -472,7 +472,7 @@
      <string notr="true">background-color: rgb(119, 128, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">

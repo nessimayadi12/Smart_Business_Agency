@@ -4,6 +4,7 @@
 #include <QDialog>
 #include "mainwindow.h"
 #include "gestion_missions.h"
+#include "gestion_client.h"
 
 namespace Ui {
 class menu;
@@ -20,19 +21,20 @@ public:
 private slots:
     void on_menu_employee_clicked();
 
-    void on_menu_customers_clicked();
-
     void on_menu_sponsor_clicked();
 
     void on_menu_missions_clicked();
 
     void on_menu_transport_clicked();
 
+    void on_menu_clients_clicked();
+
 public:
     Ui::menu *ui;
 private:
     MainWindow khalil;
     gestion_missions Achref;
+    gestion_client jessem;
 };
 
 #endif // MENU_H

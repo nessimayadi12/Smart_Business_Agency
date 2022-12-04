@@ -28,7 +28,9 @@ CONFIG += c++11
 
 SOURCES += \
     authentification.cpp \
+    client.cpp \
     employe.cpp \
+    gestion_client.cpp \
     gestion_missions.cpp \
         main.cpp \
         mainwindow.cpp \
@@ -43,7 +45,9 @@ SOURCES += \
 
 HEADERS += \
     authentification.h \
+    client.h \
     employe.h \
+    gestion_client.h \
     gestion_missions.h \
         mainwindow.h \
     connection.h \
@@ -57,6 +61,7 @@ HEADERS += \
 
 FORMS += \
         authentification.ui \
+        gestion_client.ui \
         gestion_missions.ui \
         mainwindow.ui \
         menu.ui \

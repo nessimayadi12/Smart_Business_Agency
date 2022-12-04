@@ -29,10 +29,11 @@ void menu::on_menu_missions_clicked()
     Achref.show();
 }
 
-void menu::on_menu_customers_clicked()
+void menu::on_menu_clients_clicked()
 {
-    QMessageBox::information(nullptr, QObject::tr("WELCOME JASSEM"),
-                               QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
+
+    qDebug()<<"welcome jassem";
+     jessem.show();
 }
 
 void menu::on_menu_sponsor_clicked()
@@ -48,4 +49,5 @@ void menu::on_menu_transport_clicked()
     QMessageBox::information(nullptr, QObject::tr("WELCOME NESSIM"),
                                QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
 }
+
 

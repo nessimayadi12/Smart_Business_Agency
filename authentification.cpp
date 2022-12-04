@@ -52,7 +52,7 @@ void authentification::on_pushButton_clicked()
                     m.show();
                     m.ui->menu_sponsor->setEnabled(false);
                     m.ui->menu_missions->setEnabled(false);
-                    m.ui->menu_customers->setEnabled(false);
+                    m.ui->menu_clients->setEnabled(false);
                     m.ui->menu_transport->setEnabled(false);
             break;
           case 1:
@@ -61,7 +61,7 @@ void authentification::on_pushButton_clicked()
                    m.ui->menu_sponsor->setEnabled(false);
                    m.ui->menu_missions->setEnabled(false);
                    m.ui->menu_employee->setEnabled(false);
-                   m.ui->menu_customers->setEnabled(false);
+                   m.ui->menu_clients->setEnabled(false);
             break;
         case 2 :
             hide();
@@ -75,7 +75,7 @@ void authentification::on_pushButton_clicked()
             hide();
                    m.show();
                    m.ui->menu_sponsor->setEnabled(false);
-                   m.ui->menu_customers->setEnabled(false);
+                   m.ui->menu_clients->setEnabled(false);
                    m.ui->menu_employee->setEnabled(false);
                    m.ui->menu_transport->setEnabled(false);
             break ;
@@ -84,7 +84,7 @@ void authentification::on_pushButton_clicked()
                     m.show();
                     m.ui->menu_employee->setEnabled(false);
                     m.ui->menu_missions->setEnabled(false);
-                    m.ui->menu_customers->setEnabled(false);
+                    m.ui->menu_clients->setEnabled(false);
                     m.ui->menu_transport->setEnabled(false);
             break ;
         case 5 :

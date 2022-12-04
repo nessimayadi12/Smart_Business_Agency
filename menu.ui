@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>634</width>
-    <height>523</height>
+    <width>902</width>
+    <height>520</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -36,7 +36,7 @@ boder-width:5px;
     <string>EMPLOYEES MANAGEMENT</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="menu_customers">
+  <widget class="QPushButton" name="menu_clients">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -52,7 +52,7 @@ boder-width:5px;
  </string>
    </property>
    <property name="text">
-    <string>CUSTOMERS MANAGEMENT</string>
+    <string>CLIENTS MANAGEMENT</string>
    </property>
   </widget>
   <widget class="QPushButton" name="menu_sponsor">
