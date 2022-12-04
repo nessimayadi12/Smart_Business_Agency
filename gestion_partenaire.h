@@ -1,5 +1,5 @@
-#ifndef GESTION_MISSIONS_H
-#define GESTION_MISSIONS_H
+#ifndef GESTION_PARTENAIRE_H
+#define GESTION_PARTENAIRE_H
 
 #include <QWidget>
 #include "partenaire.h"
@@ -46,4 +46,4 @@ private:
 
 };
 
-#endif // GESTION_MISSIONS_H
+#endif // GESTION_PARTENAIRE_H

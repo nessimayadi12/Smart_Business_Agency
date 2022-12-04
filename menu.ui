@@ -55,7 +55,7 @@ boder-width:5px;
     <string>CLIENTS MANAGEMENT</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="menu_sponsor">
+  <widget class="QPushButton" name="menu_partenaire">
    <property name="geometry">
     <rect>
      <x>220</x>
@@ -71,7 +71,7 @@ boder-width:5px;
  </string>
    </property>
    <property name="text">
-    <string>SPONSOR MANAGEMENT</string>
+    <string>PARTENAIRE MANAGEMENT</string>
    </property>
   </widget>
   <widget class="QPushButton" name="menu_transport">

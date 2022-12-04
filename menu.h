@@ -5,6 +5,7 @@
 #include "mainwindow.h"
 #include "gestion_missions.h"
 #include "gestion_client.h"
+#include "gestion_partenaire.h"
 
 namespace Ui {
 class menu;
@@ -29,12 +30,15 @@ private slots:
 
     void on_menu_clients_clicked();
 
+    void on_menu_partenaire_clicked();
+
 public:
     Ui::menu *ui;
 private:
     MainWindow khalil;
     gestion_missions Achref;
     gestion_client jessem;
+    gestion_partenaire mohamed;
 };
 
 #endif // MENU_H

@@ -4,6 +4,7 @@
 #include <QSound>
 #include"mainwindow.h"
 #include "authentification.h"
+#include "gestion_partenaire.h"
 
 menu::menu(QWidget *parent) :
     QDialog(parent),
@@ -36,10 +37,10 @@ void menu::on_menu_clients_clicked()
      jessem.show();
 }
 
-void menu::on_menu_sponsor_clicked()
+void menu::on_menu_partenaire_clicked()
 {
-    QMessageBox::information(nullptr, QObject::tr("WELCOME SANDID"),
-                               QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
+    qDebug()<<"welcome mohamed";
+     mohamed.show();
 }
 
 
@@ -49,5 +50,6 @@ void menu::on_menu_transport_clicked()
     QMessageBox::information(nullptr, QObject::tr("WELCOME NESSIM"),
                                QObject::tr("LOADING.\nClick Cancel to exit."), QMessageBox::Ok);
 }
+
 
 
