@@ -32,12 +32,14 @@ SOURCES += \
     employe.cpp \
     gestion_client.cpp \
     gestion_missions.cpp \
+    gestion_partenaire.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     menu.cpp \
     mission.cpp \
     modify.cpp \
+    partenaire.cpp \
     pdf.cpp \
     smtp.cpp \
     stat1.cpp \
@@ -49,11 +51,13 @@ HEADERS += \
     employe.h \
     gestion_client.h \
     gestion_missions.h \
+    gestion_partenaire.h \
         mainwindow.h \
     connection.h \
     menu.h \
     mission.h \
     modify.h \
+    partenaire.h \
     pdf.h \
     smtp.h \
     stat1.h \
@@ -63,6 +67,7 @@ FORMS += \
         authentification.ui \
         gestion_client.ui \
         gestion_missions.ui \
+        gestion_partenaire.ui \
         mainwindow.ui \
         menu.ui \
         modify.ui \

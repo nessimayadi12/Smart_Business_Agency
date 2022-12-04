@@ -121,11 +121,11 @@ void gestion_client::on_radioButton_date_clicked()
 
 void gestion_client::on_lineEdit_rech_cin_textChanged(const QString &arg1)
 {
-    QString rech = ui->lineEdit__rech_cin->text();
+    QString rech = ui->lineEdit_rech_cin->text();
 
                      etmp.recherche(ui->tableView,rech);
 
-                     if (ui->lineEdit__rech_cin->text().isEmpty())
+                     if (ui->lineEdit_rech_cin->text().isEmpty())
 
                      {
 
